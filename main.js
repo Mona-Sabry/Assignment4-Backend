@@ -353,9 +353,115 @@ app.get("/retrieveHighestStock", async (req, res) => {
 });
 
 
-//Create a reporting endpoint to retrieve suppliers whose names start with 'F'
+//11-Create a reporting endpoint to retrieve suppliers whose names start with 'F'
+app.get("/retrievesuppliers", async (req, res) => {
+  try{
+ const [suppliers] = await pool.query(`
+   SELECT * FROM suppliers WHERE supplierName LIKE 'F%'
+    
+ ` );
+
+  res.status(200).json(suppliers);
+  }
+  catch(err){
+      res.status(500).json(err);
+  }
+ 
+});
 
 
+//12-Create a reporting endpoint to retrieve all products that have never been sold
+app.get("/retrieveFullStock", async (req, res) => {
+  try{
+ const [products] = await pool.query(`
+   SELECT * FROM products p WHERE NOT EXISTS(
+   SELECT 1
+   FROM sales s
+    WHERE s.ProductID = p.ProductID
+  
+   ) 
+    
+ ` );
+
+  res.status(200).json(products);
+  }
+  catch(err){
+      res.status(500).json(err);
+  }
+ 
+});
+
+
+//13- Create a reporting endpoint to retrieve all sales including:   
+// Product name 
+// Quantity sold 
+// Sale date using SQL JOIN operations. 
+app.get("/retrieveAllSales", async (req, res) => {
+  try{
+ const [sales] = await pool.query(`
+   SELECT p.ProductName, s.quantitySold , s.salesDate AS salesOfProduct
+      FROM sales s
+      LEFT JOIN products p
+      ON s.ProductID = p.ProductID
+ ` );
+
+  res.status(200).json(sales);
+  }
+  catch(err){
+      res.status(500).json(err);
+  }
+ 
+});
+
+//14- Create a SQL script or secure administrative endpoint to create a MySQL user named store_manager and grant the 
+//following permissions on all tables:/ 
+// SELECT 
+//INSERT 
+// UPDATE  
+app.post("/createStoreManager", async (req, res) => {
+try{
+    await pool.query(`CREATE USER 'store_manager'@'localhost'
+      IDENTIFIED BY 'Store@123'
+      
+`);
+await pool.query(`
+  GRANT SELECT,INSERT,UPDATE ON trade.*  TO 'store_manager'@'localhost'
+  `);
+res.status(201).json({message:`store_manager created successfully`});
+  }
+  catch(err){
+res.status(500).json(err);
+  }
+});
+
+
+//15- Revoke the UPDATE permission from “store_manager” 
+app.delete("/revokeUpdate", async (req, res) => {
+try{
+await pool.query(`
+  REVOKE UPDATE ON trade.* FROM 'store_manager'@'localhost'
+  `);
+res.status(200).json({message:`UPDATE permission revoked successfully`});
+  }
+  catch(err){
+res.status(500).json(err);
+  }
+});
+
+
+
+//16- Grant DELETE permission to “store_manager” only on the Sales table
+app.delete("/deletePermission", async (req, res) => {
+try{
+await pool.query(`
+GRANT DELETE ON trade.Sales To 'store_manager'@'localhost'
+  `);
+res.status(200).json({message:`DELETE permission granted successfully`});
+  }
+  catch(err){
+res.status(500).json(err);
+  }
+});
 
 
 async function startApp() {
