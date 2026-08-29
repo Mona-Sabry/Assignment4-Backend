@@ -44,7 +44,7 @@ Price DECIMAL(10,2),
  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
  deleted_at TIMESTAMP  NULL DEFAULT NULL,
- SupplierID INT,
+ SupplierID INT NOT NULL,
 FOREIGN KEY (SupplierID)REFERENCES suppliers(supplierID)
    )
     `);
@@ -56,7 +56,7 @@ salesDate DATE,
  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
  deleted_at TIMESTAMP  NULL DEFAULT NULL,
-  productID INT,
+  productID INT NOT NULL,
 FOREIGN KEY (productID) REFERENCES products(ProductID)
    )
     `);
@@ -164,10 +164,10 @@ app.delete("/deletesupplier/:id", async (req, res) => {
 app.post("/recordSales", async (req, res) => {
   console.log(req.body);
   for (const sale of req.body) {
-    const { quantitySold, salesDate } = sale;
+    const { productID,quantitySold, salesDate } = sale;
     await pool.query(
-      "INSERT INTO sales(quantitySold,salesDate) values(?,?)",
-      [quantitySold, salesDate],
+      `INSERT INTO sales(productID,quantitySold,salesDate) values(?,?,?)`,
+      [productID,quantitySold, salesDate],
     );
     console.log("Sale inserted successfully");
   }
@@ -399,10 +399,7 @@ app.get("/retrieveFullStock", async (req, res) => {
 app.get("/retrieveAllSales", async (req, res) => {
   try{
  const [sales] = await pool.query(`
-   SELECT p.ProductName, s.quantitySold , s.salesDate AS salesOfProduct
-      FROM sales s
-      LEFT JOIN products p
-      ON s.ProductID = p.ProductID
+SELECT SaleID, ProductID, quantitySold, salesDate FROM sales;
  ` );
 
   res.status(200).json(sales);
