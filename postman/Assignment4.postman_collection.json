@@ -1,0 +1,774 @@
+{
+  "info": {
+    "_postman_id": "d8e18c0a-f869-4f47-8fd6-666a14ed681d",
+    "name": "Assignment4",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52608478",
+    "_collection_link": "https://go.postman.co/collection/52608478-d8e18c0a-f869-4f47-8fd6-666a14ed681d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "products",
+      "item": [
+        {
+          "name": "create a product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\r\n   \"ProductName\" : \"Milk\",\r\n   \"Price\": 60,\r\n   \"StockQuantity\": 100\r\n},\r\n{\r\n   \"ProductName\" : \"Egg\",\r\n   \"Price\": 110,\r\n   \"StockQuantity\": 50\r\n},\r\n{\r\n   \"ProductName\" : \"Oil\",\r\n   \"Price\": 80,\r\n   \"StockQuantity\": 70\r\n}\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/create",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve all products",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/retrieve",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrieve"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve a product by ID",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/retrieve/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrieve",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update a product",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ProductName\": \"Egg\",\r\n    \"Price\":150,\r\n    \"StockQuantity\": 120\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/update/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "update",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete a product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/delete/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "delete",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "suppliers",
+      "item": [
+        {
+          "name": "create a supplier",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\r\n   \"supplierName\":\"Pepsi\",\r\n   \"ContactNumber\" : \"01064270247\"\r\n},\r\n{\r\n   \"supplierName\":\"Crystal\",\r\n   \"ContactNumber\" : \"01072516893\"\r\n}\r\n  \r\n    \r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/supplier",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "supplier"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve all suppliers",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/retrieveSupplier",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrieveSupplier"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update supplier",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"supplierName\": \"ABC Supplier\",\r\n    \"ContactNumber\": \"01012345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/updateSupplier/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "updateSupplier",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete a supplier",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/deletesupplier/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "deletesupplier",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "sales",
+      "item": [
+        {
+          "name": "record",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\r\n    \"quantitySold\" : 30,\r\n    \"salesDate\" :\"2026-08-27\"\r\n},\r\n{\r\n    \"quantitySold\" : 20,\r\n    \"salesDate\" :\"2026-08-28\"\r\n}\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/recordSales",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "recordSales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve sales",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/retrieveSales",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrieveSales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve sales",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/retrieveSales/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrieveSales",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "endpoints",
+      "item": [
+        {
+          "name": "add Category",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "localhost:3000/addCategory",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "addCategory"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "remove Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/removeCategory",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "removeCategory"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "contact Number",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3000/suppliers/contactNumber",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "suppliers",
+                "contactNumber"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "product Name",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/products/productName",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "products",
+                "productName"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "supplier add",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/suppliers/add",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "suppliers",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "products add",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/products/add",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "products",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sales add",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/sales/add",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "sales",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "product Name bread",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/products/productName/bread",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "products",
+                "productName",
+                "bread"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "product Name eggs",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/products/productName/eggs",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "products",
+                "productName",
+                "eggs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve sales",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/retrieveSales",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrieveSales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve highest stock",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/retrieveHighestStock",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrieveHighestStock"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve suppliers",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/retrievesuppliers",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrievesuppliers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve Full Stock",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/retrieveFullStock",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrieveFullStock"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "retrieve All Sales",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "localhost:3000/retrieveAllSales",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "retrieveAllSales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create Store Manager",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/createStoreManager",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "createStoreManager"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "revoke Update",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/revokeUpdate",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "revokeUpdate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete Permission",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/deletePermission",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "deletePermission"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
